@@ -2,7 +2,7 @@ pipeline {
     agent { dockerfile true }
     stages {
         stage('Pull Code'){
-            git clone https://github.com/iPaoKung/gofizzbuzz.git
+            sh 'git clone https://github.com/iPaoKung/gofizzbuzz.git'
         }
         stage('Test') {
             steps {
