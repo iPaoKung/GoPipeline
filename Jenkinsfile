@@ -1,8 +1,14 @@
-node {
-    stage("stage 1"){
-        echo "Hello"
-    }
-    stage("stage 2"){
-        echo "World !!!"
+pipeline {
+    agent { dockerfile true }
+    stages {
+        stage('Pull Code'){
+            git clone https://github.com/iPaoKung/gofizzbuzz.git
+        }
+        stage('Test') {
+            steps {
+                sh 'node --version'
+                sh 'svn --version'
+            }
+        }
     }
 }
